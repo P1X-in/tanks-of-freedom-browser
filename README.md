@@ -17,7 +17,7 @@ For the source code of the server please visit [https://github.com/P1X-in/tanks-
 ## Requirements
 
 - jQuery 3.1.1
-- Webserver with SSL support
+- Webserver with SSL support (only if ToF server is using SSL)
 
 ## Deployment
 
