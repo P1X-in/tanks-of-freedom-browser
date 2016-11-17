@@ -16,7 +16,8 @@ For the source code of the server please visit [https://github.com/P1X-in/tanks-
 
 ## Requirements
 
-- Webserver with SSL
+- jQuery 3.1.1
+- Webserver with SSL support
 
 ## Deployment
 
