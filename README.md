@@ -1,2 +1,2 @@
-# tanks-of-freedom-browser
-Tanks of Freedom Online Map Browser
+# Tanks of Freedom Browser
+Online Map Browser for Tanks of Freedom Server
