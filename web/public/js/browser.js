@@ -11,7 +11,7 @@ var browser = {
         this.api_location = configuration.api_location;
         this.load_button = $("#load_more button");
         this.load_spinner = $("#spinner");
-        this.box_container = $("#listing");
+        this.box_container = $("#listing")[0];
 
         this.load_spinner.hide()
     },
