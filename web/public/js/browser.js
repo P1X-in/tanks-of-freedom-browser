@@ -11,7 +11,7 @@ var browser = {
         this.api_location = configuration.api_location;
         this.load_button = $("#load_more button");
         this.load_spinner = $("#spinner");
-        this.box_container = $("#listing")[0];
+        this.box_container = $("#listing");
 
         this.load_spinner.hide()
     },
@@ -32,7 +32,7 @@ var browser = {
             if (browser.last_loaded_id === null || browser.last_loaded_id > data['maps'][i]['id']) {
                 browser.last_loaded_id = data['maps'][i]['id'];
             }
-            browser.box_container.appendChild($("<div class='map'><h3>" + data['maps'][i]['name'] + "</h3><span class='created'>" + data['maps'][i]['created'] + "</span><span class='code'>" + data['maps'][i]['code'] + "</span></div>"));
+            browser.box_container.append($("<div class='map'><h3>" + data['maps'][i]['name'] + "</h3><span class='created'>" + data['maps'][i]['created'] + "</span><span class='code'>" + data['maps'][i]['code'] + "</span></div>"));
         }
         browser.load_spinner.hide()
         if (browser.last_loaded_id > 0) {
