@@ -8,23 +8,23 @@ var browser = {
     last_loaded_id : null,
 
     init : function (configuration) {
-        this.api_location = configuration.api_location;
-        this.load_button = $("#load_more button");
-        this.load_spinner = $("#spinner");
-        this.box_container = $("#listing");
+        browser.api_location = configuration.api_location;
+        browser.load_button = $("#load_more button");
+        browser.load_spinner = $("#spinner");
+        browser.box_container = $("#listing");
 
-        this.load_button.bind('click', this.getNextPage)
+        browser.load_button.bind('click', browser.getNextPage)
 
-        this.load_spinner.hide()
+        browser.load_spinner.hide()
     },
 
     getNextPage : function() {
-        this.load_button.hide()
-        this.load_spinner.show()
-        if (this.last_loaded_id === null) {
-            $.get(this.api_location + '/maps/listing', this.appendLoadedData)
+        browser.load_button.hide()
+        browser.load_spinner.show()
+        if (browser.last_loaded_id === null) {
+            $.get(browser.api_location + '/maps/listing', browser.appendLoadedData)
         } else {
-            $.get(this.api_location + '/maps/listing/' + this.last_loaded_id, this.appendLoadedData)
+            $.get(browser.api_location + '/maps/listing/' + browser.last_loaded_id, browser.appendLoadedData)
         }
     },
 
