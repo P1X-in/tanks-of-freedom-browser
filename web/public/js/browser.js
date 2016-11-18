@@ -13,6 +13,8 @@ var browser = {
         this.load_spinner = $("#spinner");
         this.box_container = $("#listing");
 
+        this.load_button.bind('click', this.getNextPage)
+
         this.load_spinner.hide()
     },
 
