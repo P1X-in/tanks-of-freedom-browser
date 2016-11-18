@@ -1,7 +1,9 @@
 
 var browser = {
-    "init" : function (configuration) {
-        console.log(configuration)
+    api_location : null,
+
+    init : function (configuration) {
+        this.api_location = configuration.api_location
     }
 }
 
