@@ -2,6 +2,8 @@
 
 echo "Downloading dependencies"
 
+mkdir web/public/js/vendor
 wget https://code.jquery.com/jquery-3.1.1.min.js -O web/public/js/vendor/jquery-3.1.1.min.js
+cp web/public/js/configuration.js.dist web/public/js/configuration.js
 
 echo "Done!"

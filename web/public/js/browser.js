@@ -26,9 +26,9 @@ var browser = {
 
     appendLoadedData : function(data) {
         console.log(data);
-        this.load_spinner.hide()
-        if (this.last_loaded_id > 0) {
-            this.load_button.show()
+        browser.load_spinner.hide()
+        if (browser.last_loaded_id > 0) {
+            browser.load_button.show()
         }
     }
 }
