@@ -34,7 +34,7 @@ var browser = {
             if (browser.last_loaded_id === null || browser.last_loaded_id > data['maps'][i]['id']) {
                 browser.last_loaded_id = data['maps'][i]['id'];
             }
-            browser.box_container.append($("<div class='map'><h3>" + data['maps'][i]['name'] + "</h3><span class='created'>Uploaded: " + data['maps'][i]['created'] + "</span><span class='code'>Download code: " + data['maps'][i]['code'] + "</span></div>"));
+            browser.box_container.append($("<div class='map'><h3>" + data['maps'][i]['name'] + "</h3><span class='created'>Uploaded: " + data['maps'][i]['created'] + "</span><span class='code'>Download code: " + data['maps'][i]['code'] + "</span><img class='map_image' src='public/img/" + data['maps'][i]['code'] + ".png'/></div>"));
         }
         browser.load_spinner.hide()
         if (browser.last_loaded_id > 0) {
