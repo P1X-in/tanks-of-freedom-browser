@@ -22,9 +22,9 @@ var browser = {
         browser.load_button.hide()
         browser.load_spinner.show()
         if (browser.last_loaded_id === null) {
-            $.get(browser.api_location + '/maps/listing', browser.appendLoadedData)
+            $.get('/maps/listing', browser.appendLoadedData)
         } else {
-            $.get(browser.api_location + '/maps/listing/' + browser.last_loaded_id, browser.appendLoadedData)
+            $.get('/maps/listing/' + browser.last_loaded_id, browser.appendLoadedData)
         }
     },
 
