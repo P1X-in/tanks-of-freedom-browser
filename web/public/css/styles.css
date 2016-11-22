@@ -1,13 +1,65 @@
-
-.map {
-    border: 1px solid black;
+body {
+    width:960px;
+    margin:0 auto;
+    color:#f8f8f8;
+    background-color: #1b2632;
+    font-family: 'Courier', sans;
 }
 
-.created, .code {
+h1 {
+    background: url('../img/tof_logo_enchanced.png') no-repeat center bottom;
+    width: 617px;
+    height: 170px;
+    margin:24px auto;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.listing {}
+.map {
+    width:440px;
+    min-height: 460px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+    border:1px solid #732930;
+}
+
+.map:nth-child(2n){
+    margin-left: 40px;
+}
+
+.map h3 {
+    margin:0 0 4px 0;
+    padding: 4px 8px;
+    background-color: #732930;
+}
+.map span {
+    padding:4px 0;
+}
+.map strong {
+    padding:4px 8px;
+    font-size: 1.1em;
+    color:#000;
+    background-color: #fff;
+}
+
+.map .created, 
+.map .code {
     display: block;
 }
 
-.map_image {
+.map .created {
+    padding-left:8px;
+    font-size: 0.8em;
+}
+
+.map .code {
+    margin-top:2em;
+    text-align: center;
+}
+
+.map .map_image {
     image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
     image-rendering: -moz-crisp-edges;          /* Firefox                        */
     image-rendering: -o-crisp-edges;            /* Opera                          */
@@ -17,4 +69,28 @@
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
     width: 300px;
     height: 300px;
+    margin:12px auto;
+    display: block;
+    border: 8px solid #005784;
+    padding: 4px;
+    background-color: #15c2a5;
+}
+
+#load_more {
+    display: block;
+    text-align: center;
+    border-top:8px dashed #732930;
+    padding-top: 2em;
+    margin-top:2em;
+}
+
+#load_more button {
+    display: inline-block;
+    border: 8px solid #005784;
+    padding: 4px;
+    background-color: #15c2a5;
+    color:#fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    width:256px;
 }
