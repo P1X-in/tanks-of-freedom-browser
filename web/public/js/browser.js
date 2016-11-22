@@ -37,7 +37,7 @@ var browser = {
             browser.box_container.append($("<div class='map'><h3>" + data['maps'][i]['name'] + "</h3><span class='created'>Uploaded: " + data['maps'][i]['created'] + "</span><span class='code'>Download code: <strong>" + data['maps'][i]['code'] + "</strong></span><img class='map_image' src='public/img/" + data['maps'][i]['code'] + ".png'/></div>"));
         }
         browser.load_spinner.hide()
-        if (browser.last_loaded_id > 0) {
+        if (browser.last_loaded_id > 0 || arrayLength < 20) {
             browser.load_button.show();
         }
     }
