@@ -110,12 +110,14 @@ h1 {
 and (min-device-width : 375px) 
 and (max-device-width : 667px) {
     body {
-        width:640px;
+        width:667px;
+        font-size:2em;
     }
     h2 {
         text-align: center;
     }
     .map {
+        width:660px;
         margin: 0 auto 2em;
         display: block;
     }
@@ -126,23 +128,21 @@ and (max-device-width : 667px) {
 and (min-device-width : 320px) 
 and (max-device-width : 568px) {
     body {
-        width:640px;
+        width:568px;
+        font-size:2em;
     }
     h2 {
         text-align: center;
     }
     .map {
+        width:560px;
         margin: 0 auto 2em;
         display: block;
     }
 }
 
-/* tablets */
-@media only screen and (min-width: 600px) {
-}
-
 /* desktop */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 668px) {
     .map:nth-child(2n){
         margin-left: 40px;
     }
