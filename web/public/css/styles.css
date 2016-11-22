@@ -1,9 +1,10 @@
 body {
     width:960px;
-    margin:0 auto;
+    margin:0 auto 4em;
     color:#f8f8f8;
     background-color: #1b2632;
     font-family: 'Courier', sans;
+    font-size:1em;
 }
 
 h1 {
@@ -23,10 +24,6 @@ h1 {
     position: relative;
     margin-bottom: 20px;
     border:1px solid #732930;
-}
-
-.map:nth-child(2n){
-    margin-left: 40px;
 }
 
 .map h3 {
@@ -105,4 +102,29 @@ h1 {
     height:44px;
     margin:24px auto;
     background: url('../img/spinner.gif') no-repeat center center;
+}
+
+/* phones */
+@media only screen and (max-width: 640px) {
+    body {
+        width:640px;
+    }
+    h2 {
+        text-align: center;
+    }
+    .map {
+        margin: 0 auto 2em;
+        display: block;
+    }
+}
+
+/* tablets */
+@media only screen and (min-width: 600px) {
+}
+
+/* desktop */
+@media only screen and (min-width: 768px) {
+    .map:nth-child(2n){
+        margin-left: 40px;
+    }
 }
