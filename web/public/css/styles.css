@@ -105,7 +105,26 @@ h1 {
 }
 
 /* phones */
-@media only screen and (max-width: 640px) {
+/* iphone6 */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+    body {
+        width:640px;
+    }
+    h2 {
+        text-align: center;
+    }
+    .map {
+        margin: 0 auto 2em;
+        display: block;
+    }
+}
+
+/* smaller devices */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
     body {
         width:640px;
     }
