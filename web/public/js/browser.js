@@ -51,6 +51,7 @@ var browser = {
         new_box.find('.nameAnchor').text(data['name'])
         new_box.find('.createdAnchor').text(data['created'])
         new_box.find('.codeAnchor').text(data['code'])
+        new_box.find('.downloadsAnchor').text(data['downloads'])
         new_box.find('.imageAnchor').attr("src", "public/img/" + data['code'] + ".png")
 
         return new_box

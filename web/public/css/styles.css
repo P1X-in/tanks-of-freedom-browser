@@ -51,12 +51,14 @@ h1, h2 {
     background-color: #fff;
 }
 
-.map .created, 
+.map .created,
+.map .downloads,
 .map .code {
     display: block;
 }
 
-.map .created {
+.map .created,
+.map .downloads {
     padding-left:8px;
     font-size: 0.8em;
 }
@@ -115,8 +117,8 @@ h1, h2 {
 }
 
 /* smartphones */
-@media only screen 
-and (min-device-width : 320px) 
+@media only screen
+and (min-device-width : 320px)
 and (max-device-width : 568px) {
     body {
         width:100%;
