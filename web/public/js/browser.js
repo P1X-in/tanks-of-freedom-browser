@@ -4,6 +4,7 @@ var browser = {
     load_button : null,
     load_spinner : null,
     box_container : null,
+    map_box_template : null,
 
     last_loaded_id : null,
 
@@ -12,6 +13,9 @@ var browser = {
         browser.load_button = $("#load_more button");
         browser.load_spinner = $("#spinner");
         browser.box_container = $("#listing");
+        browser.map_box_template = $("#listing .template")
+        browser.map_box_template.detach()
+        browser.map_box_template.removeClass('template')
 
         browser.load_button.bind('click', browser.getNextPage)
 
@@ -29,17 +33,27 @@ var browser = {
     },
 
     appendLoadedData : function(data) {
-        var arrayLength = data['maps'].length;
-        for (var i = 0; i < arrayLength; i++) {
+        var array_length = data['maps'].length;
+        for (var i = 0; i < array_length; i++) {
             if (browser.last_loaded_id === null || browser.last_loaded_id > data['maps'][i]['id']) {
                 browser.last_loaded_id = data['maps'][i]['id'];
             }
-            browser.box_container.append($("<div class='map'><h3>" + data['maps'][i]['name'] + "</h3><span class='created'>Uploaded: " + data['maps'][i]['created'] + "</span><span class='code'>Download code: <strong>" + data['maps'][i]['code'] + "</strong></span><img class='map_image' src='public/img/" + data['maps'][i]['code'] + ".png'/></div>"));
+            browser.box_container.append(browser.buildMapBox(data['maps'][i]));
         }
         browser.load_spinner.hide()
-        if (browser.last_loaded_id > 0 && arrayLength == 20) {
+        if (browser.last_loaded_id > 0 && array_length == 20) {
             browser.load_button.show();
         }
+    },
+
+    buildMapBox : function(data) {
+        var new_box = browser.map_box_template.clone()
+        new_box.find('.nameAnchor').text(data['name'])
+        new_box.find('.createdAnchor').text(data['created'])
+        new_box.find('.codeAnchor').text(data['code'])
+        new_box.find('.imageAnchor').attr("src", "public/img/" + data['code'] + ".png")
+
+        return new_box
     }
 }
 
