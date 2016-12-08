@@ -57,6 +57,9 @@ var browser = {
         new_box.find('.codeAnchor').text(data['code'])
         new_box.find('.downloadsAnchor').text(data['downloads'])
         new_box.find('.imageAnchor').attr("src", "public/img/" + data['code'] + ".png")
+        new_box.find('.moreAuthor').bind('click', function () {
+            browser.loadAuthorMaps(data['code'])
+        })
 
         return new_box
     },
@@ -69,6 +72,18 @@ var browser = {
 
     clear : function() {
         browser.box_container.empty()
+    },
+
+    loadAuthorMaps : function(map_code) {
+        browser.clear()
+        browser.load_button.hide()
+        browser.load_spinner.show()
+        $.get('/maps/author' + map_code, browser.appendLoadedData)
+    },
+
+    appendLoadedAuthorMaps : function(data) {
+        browser.appendLoadedData(data)
+        browser.load_button.hide()
     }
 }
 
