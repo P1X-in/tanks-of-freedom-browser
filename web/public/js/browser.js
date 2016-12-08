@@ -78,7 +78,7 @@ var browser = {
         browser.clear()
         browser.load_button.hide()
         browser.load_spinner.show()
-        $.get('/maps/author' + map_code, browser.appendLoadedData)
+        $.get('/maps/author/' + map_code, browser.appendLoadedData)
     },
 
     appendLoadedAuthorMaps : function(data) {
