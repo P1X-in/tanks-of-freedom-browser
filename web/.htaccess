@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule  ^/browser/author/(.*)$  /browser/?map=$1
+RewriteRule  ^/browser/author/(.*)$  /browser
