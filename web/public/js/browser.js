@@ -1,15 +1,4 @@
 
-$.getUrlParam = function(name){
-    var href = window.location.href
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(href)
-
-    if (results == null) {
-        return ""
-    }
-
-    return results[1]
-}
-
 var browser = {
     api_location : null,
     load_button : null,
@@ -97,8 +86,19 @@ var browser = {
         browser.load_button.hide()
     },
 
+    getMapCode : function() {
+        var href = window.location.href
+        var results = new RegExp('author_([a-zA-Z0-9]*).html').exec(href)
+
+        if (results == null) {
+            return ""
+        }
+
+        return results[1]
+    },
+
     initPage : function() {
-        var map_code = $.getUrlParam("map")
+        var map_code = browser.getMapCode()
 
         if (map_code != "") {
             browser.loadAuthorMaps(map_code)
