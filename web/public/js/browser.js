@@ -5,6 +5,7 @@ var browser = {
     load_spinner : null,
     box_container : null,
     map_box_template : null,
+    logo_button : null,
 
     last_loaded_id : null,
 
@@ -14,10 +15,13 @@ var browser = {
         browser.load_spinner = $("#spinner");
         browser.box_container = $("#listing");
         browser.map_box_template = $("#listing .template")
+        browser.logo_button = $("#logo_button")
+
         browser.map_box_template.detach()
         browser.map_box_template.removeClass('template')
 
         browser.load_button.bind('click', browser.getNextPage)
+        browser.logo_button.bind('click', browser.reloadLatest)
 
         browser.load_spinner.hide()
     },
@@ -55,6 +59,16 @@ var browser = {
         new_box.find('.imageAnchor').attr("src", "public/img/" + data['code'] + ".png")
 
         return new_box
+    },
+
+    reloadLatest : function() {
+        browser.clear()
+        browser.last_loaded_id = null
+        browser.getNextPage()
+    },
+
+    clear : function() {
+        browser.box_container.clear()
     }
 }
 
