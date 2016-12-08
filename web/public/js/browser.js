@@ -3,7 +3,10 @@ $.getUrlParam = function(name){
     var href = window.location.href
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(href)
 
-    return results[1] || ""
+    if results == null:
+        return ""
+
+    return results[1]
 }
 
 var browser = {
