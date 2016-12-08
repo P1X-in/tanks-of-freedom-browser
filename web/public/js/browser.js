@@ -60,6 +60,7 @@ var browser = {
         new_box.find('.moreAuthor').bind('click', function () {
             browser.loadAuthorMaps(data['code'])
         })
+        new_box.find('.moreAuthor').attr('href', '/browser/author_' + data['code'] + '.html')
 
         return new_box
     },
