@@ -68,7 +68,7 @@ var browser = {
     },
 
     clear : function() {
-        browser.box_container.clear()
+        browser.box_container.empty()
     }
 }
 
