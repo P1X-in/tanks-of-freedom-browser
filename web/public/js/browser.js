@@ -1,4 +1,11 @@
 
+$.getUrlParam = function(name){
+    var href = window.location.href
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(href)
+
+    return results[1] || ""
+}
+
 var browser = {
     api_location : null,
     load_button : null,
@@ -84,11 +91,21 @@ var browser = {
     appendLoadedAuthorMaps : function(data) {
         browser.appendLoadedData(data)
         browser.load_button.hide()
+    },
+
+    initPage : function() {
+        var map_code = $.getUrlParam("map")
+
+        if (map_code != "") {
+            browser.loadAuthorMaps(map_code)
+        } else {
+            browser.getNextPage()
+        }
     }
 }
 
 $(document).ready(function() {
     browser.init(configuration);
 
-    browser.getNextPage()
+    browser.initPage()
 });
