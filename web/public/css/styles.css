@@ -8,9 +8,9 @@ body {
 }
 
 h1 {
-    background: url('../img/tof_logo_enchanced.png') no-repeat center bottom;
+    background: url('../img/online_logo.png') no-repeat center bottom;
     width: 617px;
-    height: 170px;
+    height: 214px;
     margin:24px auto;
     font-size: 1.2em;
     cursor: pointer;
