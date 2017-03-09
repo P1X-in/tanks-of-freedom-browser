@@ -113,6 +113,10 @@ button {
     font-size: 1.2em;
 }
 
+a {
+    color: #ffffff;
+}
+
 #load_more button {
     width:256px;
 }
