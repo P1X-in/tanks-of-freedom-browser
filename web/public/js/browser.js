@@ -1,27 +1,41 @@
 
 var browser = {
-    api_location : null,
     load_button : null,
     load_spinner : null,
     box_container : null,
     map_box_template : null,
     logo_button : null,
 
+    latest_link : null,
+    top_downloads_link : null,
+
     last_loaded_id : null,
 
     init : function (configuration) {
-        browser.api_location = configuration.api_location;
-        browser.load_button = $("#load_more button");
-        browser.load_spinner = $("#spinner");
-        browser.box_container = $("#listing");
+        browser.load_button = $("#load_more button")
+        browser.load_spinner = $("#spinner")
+        browser.box_container = $("#listing")
         browser.map_box_template = $("#listing .template")
         browser.logo_button = $("#logo_button")
+
+        browser.latest_link = $("#latest_link")
+        browser.top_downloads_link = $("#top_downloads_link")
 
         browser.map_box_template.detach()
         browser.map_box_template.removeClass('template')
 
         browser.load_button.bind('click', browser.getNextPage)
         browser.logo_button.bind('click', browser.reloadLatest)
+
+        browser.latest_link.bind('click', function(event) {
+            event.preventDefault()
+            browser.reloadLatest()
+        })
+
+        browser.top_downloads_link.bind('click', function(event) {
+            event.preventDefault()
+            browser.loadTopDownloadedMaps()
+        })
 
         browser.load_spinner.hide()
     },
@@ -83,35 +97,10 @@ var browser = {
         $.get('/maps/author/' + map_code, browser.appendLoadedData)
     },
 
-    appendLoadedAuthorMaps : function(data) {
-        browser.appendLoadedData(data)
+    loadTopDownloadedMaps : function() {
+        browser.clear()
         browser.load_button.hide()
-    },
-
-    getMapCode : function() {
-        var href = window.location.href
-        var results = new RegExp('author_([a-zA-Z0-9]*).html').exec(href)
-
-        if (results == null) {
-            return ""
-        }
-
-        return results[1]
-    },
-
-    initPage : function() {
-        var map_code = browser.getMapCode()
-
-        if (map_code != "") {
-            browser.loadAuthorMaps(map_code)
-        } else {
-            browser.getNextPage()
-        }
+        browser.load_spinner.show()
+        $.get('/maps/top/downloads', browser.appendLoadedData)
     }
 }
-
-$(document).ready(function() {
-    browser.init(configuration);
-
-    browser.initPage()
-});
