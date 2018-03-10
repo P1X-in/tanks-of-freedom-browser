@@ -21,18 +21,6 @@ var app = {
 
         if (typeof action === "function") {
             action(route.match)
-        } else {
-            app.mobileFallback(route)
-        }
-    },
-
-    mobileFallback : function(route) {
-        if (route.route.name === "latest") {
-            controller.latestAction(route.match)
-        } else if (route.route.name === "authorMaps") {
-            controller.authorMapsAction(route.match)
-        } else if (route.route.name === "topDownloads") {
-            controller.topDownloadsAction(route.match)
         }
     }
 }
