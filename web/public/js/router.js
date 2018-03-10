@@ -5,7 +5,7 @@ var router = {
     routes : [
         {
             name : "latest",
-            match : "^/browser*$",
+            match : "browser/$",
         },
         {
             name : "authorMaps",
@@ -31,6 +31,8 @@ var router = {
 
             if (match.length > 0) {
                 break
+            } else {
+                route = router.routes[0]
             }
         }
 
