@@ -2,4 +2,4 @@
 RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule  ^(.*).html$  index.html
+RewriteRule  ^(.*).html$  /browser/index.html
