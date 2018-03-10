@@ -12,7 +12,7 @@ var controller = {
     },
 
     topDownloadsAction : function(match) {
-        browser.getNextPage()
+        browser.loadTopDownloadedMaps()
     }
 
 }
