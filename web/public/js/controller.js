@@ -29,7 +29,7 @@ var controller = {
 
     topDownloadsAction : function(match) {
         browser.loadTopDownloadedMapsV1()
-    }
+    },
 
     topDownloadsV2Action : function(match) {
         browser.loadTopDownloadedMapsV2()
