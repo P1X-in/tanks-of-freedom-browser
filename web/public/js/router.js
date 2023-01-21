@@ -8,12 +8,28 @@ var router = {
             match : "browser/$",
         },
         {
+            name : "latestV1",
+            match : "v1.html",
+        },
+        {
+            name : "latestV2",
+            match : "v2.html",
+        },
+        {
             name : "authorMaps",
             match : "author_([a-zA-Z0-9]*).html",
         },
         {
+            name : "authorMapsV2",
+            match : "author_([a-zA-Z0-9]*)-([0-9]*).html",
+        },
+        {
             name : "topDownloads",
             match : "top_downloads.html",
+        },
+        {
+            name : "topDownloadsV2",
+            match : "top_downloads_v2.html",
         },
     ],
 

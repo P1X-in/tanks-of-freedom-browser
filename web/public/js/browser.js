@@ -1,11 +1,14 @@
 
 var browser = {
+    api_version = 1,
+
     load_button : null,
     load_spinner : null,
     box_container : null,
     map_box_template : null,
     logo_button : null,
 
+    switch_link : null,
     latest_link : null,
     top_downloads_link : null,
 
@@ -18,6 +21,7 @@ var browser = {
         browser.map_box_template = $("#listing .template")
         browser.logo_button = $("#logo_button")
 
+        browser.switch_link = $("#switch_link")
         browser.latest_link = $("#latest_link")
         browser.top_downloads_link = $("#top_downloads_link")
 
@@ -26,6 +30,11 @@ var browser = {
 
         browser.load_button.bind('click', browser.getNextPage)
         browser.logo_button.bind('click', browser.reloadLatest)
+
+        browser.switch_link.bind('click', function(event) {
+            event.preventDefault()
+            browser.autoSelectVersion()
+        })
 
         browser.latest_link.bind('click', function(event) {
             event.preventDefault()
@@ -43,10 +52,17 @@ var browser = {
     getNextPage : function() {
         browser.load_button.hide()
         browser.load_spinner.show()
-        if (browser.last_loaded_id === null) {
-            $.get('/maps/listing', browser.appendLoadedData)
+
+        if (browser.api_version == 1) {
+            base_url = '/maps/listing'
         } else {
-            $.get('/maps/listing/' + browser.last_loaded_id, browser.appendLoadedData)
+            base_url = '/v2/maps/listing'
+        }
+
+        if (browser.last_loaded_id === null) {
+            $.get(base_url, browser.appendLoadedData)
+        } else {
+            $.get(base_url + browser.last_loaded_id, browser.appendLoadedData)
         }
     },
 
@@ -65,12 +81,18 @@ var browser = {
     },
 
     buildMapBox : function(data) {
+        if (browser.api_version == 1) {
+            thumb_url = 'public/thumbs/'
+        } else {
+            thumb_url = 'public/thumbs/v2/'
+        }
+
         var new_box = browser.map_box_template.clone()
         new_box.find('.nameAnchor').text(data['name'])
         new_box.find('.createdAnchor').text(data['created'])
         new_box.find('.codeAnchor').text(data['code'])
         new_box.find('.downloadsAnchor').text(data['downloads'])
-        new_box.find('.imageAnchor').attr("src", "public/thumbs/" + data['code'] + ".png")
+        new_box.find('.imageAnchor').attr("src", thumb_url + data['code'] + ".png")
         new_box.find('.moreAuthor').bind('click', function (event) {
             event.preventDefault()
             browser.loadAuthorMaps(data['code'])
@@ -78,6 +100,41 @@ var browser = {
         new_box.find('.moreAuthor').attr('href', '/browser/author_' + data['code'] + '.html')
 
         return new_box
+    },
+
+    loadInterfaceV1 : function() {
+        browser.switch_link.attr('href', './v2.html')
+        browser.switch_link.text('Switch to ToF II')
+        browser.top_downloads_link.attr('href', './top_downloads.html')
+        browser.logo_button.attr('class', 'v1')
+    },
+    loadInterfaceV2 : function() {
+        browser.switch_link.attr('href', './v1.html')
+        browser.switch_link.text('Switch to ToF')
+        browser.top_downloads_link.attr('href', './top_downloads_v2.html')
+        browser.logo_button.attr('class', 'v2')
+    },
+
+    reloadInterface : function() {
+        if (browser.api_version == 1) {
+            browser.loadInterfaceV1()
+        } else {
+            browser.loadInterfaceV2()
+        }
+    },
+
+    autoSelectVersion : function() {
+        if (browser.api_version == 1) {
+            browser.switchApiVersion(2)
+        } else {
+            browser.switchApiVersion(1)
+        }
+        browser.reloadLatest()
+    },
+
+    switchApiVersion : function(version) {
+        browser.api_version = version
+        browser.reloadInterface()
     },
 
     reloadLatest : function() {
@@ -94,13 +151,47 @@ var browser = {
         browser.clear()
         browser.load_button.hide()
         browser.load_spinner.show()
+
+        if (browser.api_version == 1) {
+            base_url = '/maps/author/'
+        } else {
+            base_url = '/v2/maps/author/'
+        }
+
         $.get('/maps/author/' + map_code, browser.appendLoadedData)
+    },
+
+    loadAuthorMapsV1 : function(map_code) {
+        browser.switchApiVersion(1)
+        browser.loadAuthorMaps(map_code)
+    },
+
+    loadAuthorMapsV2 : function(map_code) {
+        browser.switchApiVersion(2)
+        browser.loadAuthorMaps(map_code)
     },
 
     loadTopDownloadedMaps : function() {
         browser.clear()
         browser.load_button.hide()
         browser.load_spinner.show()
+
+        if (browser.api_version == 1) {
+            base_url = '/maps/top/downloads'
+        } else {
+            base_url = '/v2/maps/top/downloads'
+        }
+
         $.get('/maps/top/downloads', browser.appendLoadedData)
+    },
+
+    loadTopDownloadedMapsV1 : function() {
+        browser.switchApiVersion(1)
+        browser.loadTopDownloadedMaps()
+    },
+
+    loadTopDownloadedMapsV2 : function() {
+        browser.switchApiVersion(2)
+        browser.loadTopDownloadedMaps()
     }
 }

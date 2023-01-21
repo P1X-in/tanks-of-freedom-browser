@@ -7,8 +7,17 @@ body {
     font-size:1em;
 }
 
-h1 {
+h1.v1 {
     background: url('../img/online_logo.png') no-repeat center bottom;
+    width: 617px;
+    height: 214px;
+    margin:24px auto;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+h1.v2 {
+    background: url('../img/online_logo_v2.png') no-repeat center bottom;
     width: 617px;
     height: 214px;
     margin:24px auto;
