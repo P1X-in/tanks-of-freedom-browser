@@ -182,7 +182,7 @@ var browser = {
             base_url = '/v2/maps/top/downloads'
         }
 
-        $.get('/maps/top/downloads', browser.appendLoadedData)
+        $.get(base_url, browser.appendLoadedData)
     },
 
     loadTopDownloadedMapsV1 : function() {
