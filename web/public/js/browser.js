@@ -1,6 +1,6 @@
 
 var browser = {
-    api_version = 1,
+    api_version : 1,
 
     load_button : null,
     load_spinner : null,
