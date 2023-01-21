@@ -107,12 +107,14 @@ var browser = {
         browser.switch_link.text('Switch to ToF II')
         browser.top_downloads_link.attr('href', './top_downloads.html')
         browser.logo_button.attr('class', 'v1')
+        $("body").attr('class', 'v1')
     },
     loadInterfaceV2 : function() {
         browser.switch_link.attr('href', './v1.html')
         browser.switch_link.text('Switch to ToF')
         browser.top_downloads_link.attr('href', './top_downloads_v2.html')
         browser.logo_button.attr('class', 'v2')
+        $("body").attr('class', 'v2')
     },
 
     reloadInterface : function() {

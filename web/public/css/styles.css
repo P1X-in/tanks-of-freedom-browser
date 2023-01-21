@@ -7,7 +7,7 @@ body {
     font-size:1em;
 }
 
-h1.v1 {
+.v1 h1 {
     background: url('../img/online_logo.png') no-repeat center bottom;
     width: 617px;
     height: 214px;
@@ -16,7 +16,7 @@ h1.v1 {
     cursor: pointer;
 }
 
-h1.v2 {
+.v2 h1 {
     background: url('../img/online_logo_v2.png') no-repeat center bottom;
     width: 617px;
     height: 214px;
@@ -78,7 +78,7 @@ h1, h2 {
     text-align: center;
 }
 
-.map .map_image {
+.v1 .map .map_image {
     image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
     image-rendering: -moz-crisp-edges;          /* Firefox                        */
     image-rendering: -o-crisp-edges;            /* Opera                          */
@@ -93,6 +93,23 @@ h1, h2 {
     border: 8px solid #005784;
     padding: 4px;
     background-color: #15c2a5;
+}
+
+.v2 .map .map_image {
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+    width: 300px;
+    height: 300px;
+    margin:12px auto;
+    display: block;
+    border: 8px solid #524f40;
+    padding: 4px;
+    background-color: #493c2b;
 }
 
 .moreAuthor {
