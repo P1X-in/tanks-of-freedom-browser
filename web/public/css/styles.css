@@ -17,7 +17,7 @@ body {
 }
 
 .v2 h1 {
-    background: url('../img/online_logo_v2.png') no-repeat center bottom;
+    background: url('../img/online_logo_v2.png') no-repeat center;
     width: 617px;
     height: 214px;
     margin:24px auto;
