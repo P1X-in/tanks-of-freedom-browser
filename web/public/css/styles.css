@@ -167,8 +167,10 @@ and (max-device-width : 568px) {
         width:100%;
         font-size:2em;
     }
-    h1 {font-size:2em;
-        background:none;}
+    h1, .v1 h1, .v2 h1 {
+        font-size:2em;
+        background:none;
+    }
     h2 {
         font-size:1.2em;
     }
