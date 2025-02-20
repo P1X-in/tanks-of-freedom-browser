@@ -6,7 +6,7 @@ Online Map Browser for Tanks of Freedom Server
 
 ## Indie Turn Based Strategy in Isometric Pixel Art
 
-This project is a server for Tanks of Freedom game. It allows players to share custom maps and play online matches
+This project is a frontend for server for Tanks of Freedom game. It allows players to browse custom maps
 
 ## Client
 
