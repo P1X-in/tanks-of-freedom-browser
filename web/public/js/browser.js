@@ -62,7 +62,7 @@ var browser = {
         if (browser.last_loaded_id === null) {
             $.get(base_url, browser.appendLoadedData)
         } else {
-            $.get(base_url + browser.last_loaded_id, browser.appendLoadedData)
+            $.get(base_url + "/" + browser.last_loaded_id, browser.appendLoadedData)
         }
     },
 
